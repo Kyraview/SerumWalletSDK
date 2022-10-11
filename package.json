@@ -1,6 +1,6 @@
 {
   "name": "snapserumsdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SDK for the metamask solana Serum Wallet",
   "main": "./dist/index_bundle.js",
   "files": [
