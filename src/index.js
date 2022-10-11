@@ -38,7 +38,7 @@ export class Wallet{
         const thing = await ethereum.request({
           method: 'wallet_enable',
           params: [{
-            wallet_snap: { ["npm:algorand"]: {} },
+            wallet_snap: { ["npm:snap-solana"]: {} },
           }]
         })
       }
@@ -54,7 +54,7 @@ export class Wallet{
       }
       this.accounts = await ethereum.request({
         method: 'wallet_invokeSnap',
-        params: ["npm:algorand", {
+        params: ["npm:snap-solana", {
           method: 'getAccounts',
         }]
       })
@@ -184,13 +184,16 @@ export class Wallet{
           </center>`,
           height: 250
       })
+      
+      //set Account not needed for this demo
       await ethereum.request({
         method: 'wallet_invokeSnap',
-        params: ['npm:algorand', {
+        params: ['npm:snap-solana', {
           method: 'setAccount',
-          address: 	this.enabledAccounts[0]
+          params: { 'address': this.enabledAccounts[0]}
         }]        
       })
+      
       this.bubble.walletUi.screen = 'base';
       await this.bubble.preLoad();
       await setTimeout(()=>this.bubble.close(), 500);
@@ -210,7 +213,7 @@ export class Wallet{
       try{
         return await ethereum.request({
           method: 'wallet_invokeSnap',
-          params: ["npm:algorand", {
+          params: ["npm:snap-solana", {
             method: 'signAndPostTxns',
             txns: walletTransactions
           }]
@@ -246,7 +249,7 @@ export class Wallet{
       try{
         return await ethereum.request({
           method: 'wallet_invokeSnap',
-          params: ["npm:algorand", {
+          params: ["npm:snap-solana", {
             method: 'signTxns',
             txns: walletTransactions
           }]
@@ -261,7 +264,7 @@ export class Wallet{
       try{
         return await ethereum.request({
           method: 'wallet_invokeSnap',
-          params: ["npm:algorand", {
+          params: ["npm:snap-solana", {
             method: 'postTxns',
             stxns: stxns
           }]
@@ -316,7 +319,7 @@ export class Wallet{
       try{
         const EncodedSignedAccount = await ethereum.request({
           method: 'wallet_invokeSnap',
-          params: ["npm:algorand", {
+          params: ["npm:snap-solana", {
             method: 'signLogicSig',
             logicSigAccount: EncodedLogicSigAccount,
           }]

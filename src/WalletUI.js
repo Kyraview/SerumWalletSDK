@@ -27,7 +27,7 @@ export default class WalletUI{
 
     async preLoad(){
         
-        let price = fetch("https://api.coincap.io/v2/assets/algorand" ,{
+        let price = fetch("https://api.coincap.io/v2/assets/solana" ,{
             method: 'GET',
             redirect: 'follow'
           })
@@ -41,7 +41,7 @@ export default class WalletUI{
         });
         let balance = window.ethereum.request({
             method:  'wallet_invokeSnap',
-            params: ['npm:algorand', {
+            params: ['npm:snap-solana', {
               method:  'getBalance',
               testnet:  this.wallet.testnet
             }]
@@ -59,27 +59,32 @@ export default class WalletUI{
 
     async preLoadTransactions(){
         return await window.ethereum.request({ method: 'wallet_invokeSnap', 
-            params: ['npm:algorand',
+            params: ['npm:snap-solana',
                 {
                     method: 'getTransactions',
                     testnet: this.wallet.testnet
                 }
             ] 
         }).then((result)=>{
-            this.transactions = result;
+            this.transactions = [];
+            //this.transactions = result;
             return result;
         })
     }
 
     async preLoadAssets(){
+        /*
         const result = await window.ethereum.request({ method: 'wallet_invokeSnap',
-            params: ['npm:algorand',
+            params: ['npm:snap-solana',
                 {
                     method: 'getAssets',
                     testnet: this.wallet.testnet
                 }
             ]
         })
+        */
+       const result = [];
+
 
         const algo = {amount:this.userBalance, "asset-id": 0, asset: [{
             "index": 0,

@@ -26,7 +26,7 @@ const masterCSS = `
 
   select{
     
-    background-color: #963beb;
+    background-color: black;
     color:white;
     font-family: 'Open Sans', sans-serif;
     appearance: auto;
@@ -92,6 +92,8 @@ const masterCSS = `
     margin: 0px;
     
     cursor: pointer;
+    border-radius: 25%;
+    background-color: white;
     
     
   }

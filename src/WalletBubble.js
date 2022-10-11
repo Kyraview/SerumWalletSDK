@@ -6,7 +6,7 @@ const IPFSURL = 'https://snapalgo-imgs.netlify.app/imgs';
 
 const walletImg = IPFSURL+"/wallet.svg";
 const settingsImg = IPFSURL+"/settings-outline.svg";
-const snapAlgoImg = IPFSURL+"/logo.svg"; 
+const snapAlgoImg = 'https://www.gitbook.com/cdn-cgi/image/width=40,height=40,fit=contain,dpr=1.25,format=auto/https%3A%2F%2F813280594-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-MX0KCPgI-ecLKfYa3jX%252Ficon%252F3rH3zd9BQ1P1FVp3kmFg%252Fserum%2520NOF.png%3Falt%3Dmedia%26token%3Da7f77331-1100-4db3-8afd-a45009f3b08c'; 
 const connectedGif = IPFSURL+"/connected.gif";
 
 import WalletUI from "./WalletUI";

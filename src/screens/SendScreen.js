@@ -17,6 +17,7 @@ export default class SendScreen{
         if(opts === undefined){
             opts = {};
         }
+        /*
         let holder = document.createElement("div");
         this.wallet.injector.inject(holder, "display:block; margin-top: 20px;");
         let container = document.createElement('div');
@@ -136,7 +137,15 @@ export default class SendScreen{
       };
       sendButton.addEventListener('click', sendFunction.bind(this));
       sendButtonDiv.appendChild(sendButton);
+      */
       let screen = this.walletUi.getScreen();
+      
+      const holder = document.createElement('div');
+      this.wallet.injector.inject(holder);
+      const warning = document.createElement('p');
+      this.wallet.injector.inject(warning, "text-align: center;");
+      warning.innerHTML = "the Send Screen is not yet implemented";
+      holder.appendChild(warning);
       screen.element.appendChild(holder);
       screen.width = 650;
       screen.height = 400;

@@ -6,6 +6,7 @@ export default class LedgerScreen{
         this.wallet = wallet;
     }
     async render(opts){
+        /** 
         if(this.WalletUi.transactions==null){
             console.log("transaction preload failed, retrying");
             return this.WalletUi.preLoadTransactions().then(this.render.bind(this));
@@ -30,10 +31,10 @@ export default class LedgerScreen{
                 flex-direction: row; 
                 justify-content: space-between; 
                 margin-top: 20px; 
-                /*background-color: #444; */
+                
                 padding: 10px;
                 width: 90%;
-                /*box-shadow: 0px 1px 5px rgba(255,255,255,0.2);*/
+                
                 border-radius: 10px;
             `;
             this.wallet.injector.inject(transactionDiv, transactionDiv_style);
@@ -87,6 +88,13 @@ export default class LedgerScreen{
             transactionContainer.appendChild(transactionDiv);
         
         }
+        */
+        const holder = document.createElement('div');
+        this.wallet.injector.inject(holder);
+        const warning = document.createElement('p');
+        this.wallet.injector.inject(warning, "text-align: center;");
+        warning.innerHTML = "Transaction History is not yet Implemented";
+        holder.appendChild(warning);
 
         let screen = this.WalletUi.getScreen();
         screen.height = 500;

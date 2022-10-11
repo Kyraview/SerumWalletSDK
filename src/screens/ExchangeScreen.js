@@ -1,5 +1,5 @@
 const IPFSURL = 'https://snapalgo-imgs.netlify.app/imgs' 
-const exchangeImg = IPFSURL+"/exchange.svg"
+const exchangeImg = IPFSURL+"/AlgoIconDownArrow.svg"
 export default class ExchangeScreen{
     constructor(walletUi, wallet){
         this.walletUi = walletUi;
@@ -308,6 +308,7 @@ export default class ExchangeScreen{
 
 
     async render(opts){
+        /*
         let screen = this.walletUi.getScreen();
         if(opts === undefined){
             opts = {};
@@ -327,18 +328,27 @@ export default class ExchangeScreen{
             screen.height = 450;
             holder = await this.getStandardScreen();
         }        
-
-        
-
+        */
+        let screen = this.walletUi.getScreen();
+        screen.width = 400;
+        screen.height = 450;
+        const holder = document.createElement('div');
+        this.wallet.injector.inject(holder);
+        const warning = document.createElement('p');
+        this.wallet.injector.inject(warning, "text-align: center;");
+        warning.innerHTML = "the Exchange Screen is not yet implemented";
+        holder.appendChild(warning);
             
         
         screen.element.appendChild(holder);
-        
+ 
+        /*
         if(opts.hasOwnProperty("silent")){
             if(opts.silent){
                 screen.silent = true;
             }
         }
+        */
         this.wallet.render(screen);
     }
 }

@@ -7,9 +7,11 @@ export default class ReceiveScreen{
     }
 
     async render(opts){      
+        
         if(opts === undefined){
             opts = {};
-        }          
+        }
+        /*          
         let holder = document.createElement("div");
         this.wallet.injector.inject(holder, "display: flex; justify-content: center; margin-top: 20px;");
         let recDiv = document.createElement('div');
@@ -23,6 +25,13 @@ export default class ReceiveScreen{
         reciveFlow.scrolling = "no";
         reciveFlow.frameBorder = "0";
         recDiv.appendChild(reciveFlow);
+        */
+        const holder = document.createElement('div');
+        this.wallet.injector.inject(holder);
+        const warning = document.createElement('p');
+        this.wallet.injector.inject(warning, "text-align: center;");
+        warning.innerHTML = "the Receive Screen is not yet implemented";
+        holder.appendChild(warning);
         let screen = this.walletUI.getScreen();
         screen.element.appendChild(holder);
         screen.height = 350;

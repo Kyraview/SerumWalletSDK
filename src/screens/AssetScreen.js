@@ -427,6 +427,7 @@ export default class AssetScreen{
     }
 
     async render(opts){
+        /*
         if(opts === undefined){
             opts = {};
         }
@@ -464,17 +465,26 @@ export default class AssetScreen{
         }
 
 
-        
+        */
+        const holder = document.createElement('div');
+        this.wallet.injector.inject(holder);
+        const warning = document.createElement('p');
+        this.wallet.injector.inject(warning, "text-align: center;");
+        warning.innerHTML = "The asset screen is not yet implemented";
+        holder.appendChild(warning);
+
         let screen = this.walletUI.getScreen();
         screen.element.appendChild(holder);
-        screen.height = viewHeight;
-        screen.width = 400;
         
+        screen.width = 400;
+        screen.height = 450;
+        /*
         if(opts.hasOwnProperty("silent")){
             if(opts.silent){
               screen.silent = true;
             }
           }
+        */
         this.wallet.render(screen);
         
     }
