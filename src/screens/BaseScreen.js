@@ -91,7 +91,7 @@ export default class BaseScreen{
             balanceUsd.className = "secoundaryFont";
             this.wallet.injector.inject(balanceUsd, "margin-top: 0px; margin-bottom: 0px; margin-left: 70px; font-size: 15px;");
             let UsdTotal = "$" + (this.walletUI.price*(this.walletUI.userBalance/1000000)).toFixed(2);
-            let AlgoTotal = " " + (this.walletUI.userBalance/1000000).toFixed(3) + " Algo";
+            let AlgoTotal = " " + (this.walletUI.userBalance/1000000).toFixed(3) + " SOL";
             balanceUsd.innerHTML = `${AlgoTotal}   ${this.walletUI.price === 0? "": "~ "+UsdTotal}`;
             AccountNameDiv.appendChild(balanceUsd);
         }
