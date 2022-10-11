@@ -1,7 +1,7 @@
 {
-  "name": "snapalgo-sdk",
-  "version": "1.0.26",
-  "description": "SDK for the snapalgo algorand wallet",
+  "name": "snapserumsdk",
+  "version": "0.0.1",
+  "description": "SDK for the metamask solana Serum Wallet",
   "main": "./dist/index_bundle.js",
   "files": [
     "dist"
